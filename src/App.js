@@ -1,25 +1,32 @@
-import logo from './logo.svg';
+import React, { useState } from 'react'
 import './App.css';
+import TodoInput from './Component/TodoInput';
+import TodoItemList from './Component/TodoItemList';
 
 function App() {
+
+  const [todo_Items , setTodoItems] =useState([])
+
+  function handleNewItem(itemName,itemDueDate){
+    const newTodo_Item = [...todo_Items,{name:itemName,dueDate:itemDueDate}]
+    setTodoItems(newTodo_Item)
+  }
+
+  const handleDelete = (item_name) =>{
+    const newTodo_Item = todo_Items.filter(item => item.name !== item_name)
+    setTodoItems(newTodo_Item) 
+  }
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div className="container-data">
+        <h1>TODO LIST</h1>
+        <TodoInput onNewItem={handleNewItem}/>
+        <TodoItemList todoItems = {todo_Items} onDelete = {handleDelete}/>      
+      </div>
     </div>
+    
   );
-}
+}  
 
 export default App;

@@ -1,0 +1,29 @@
+.todo-input-box{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todo-input-box input{
+    width: 266px;
+    height: 27px;
+    padding: 2px;
+}
+
+.todo-input-box button{
+    width: 101px;
+    height: 29px;
+    padding: 2px;
+    background-color: #2fd92f;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    opacity: .8;
+    font-size: 17px;
+}
+
+.todo-input-box button:hover{
+    opacity: 1;
+}
